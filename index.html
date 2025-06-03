@@ -2,16 +2,100 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Vanilla JS Template with Prettier, ESLint and conventional commits"
-    />
-    <title>Vanilla JS Template</title>
+    <title>Code Data Sanitizer</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div class="container">
+      <div class="header">
+        <h1>Code Sanitizer</h1>
+        <p>Remove sensitive data before sharing with AI services</p>
+      </div>
+
+      <div class="main-content">
+        <div class="input-section">
+          <h2 class="section-title">Input Code</h2>
+          <textarea id="inputCode" placeholder="Paste your code here..."></textarea>
+
+          <div class="options">
+            <div class="option-group">
+              <input type="checkbox" id="apiKeys" class="checkbox" checked />
+              <label for="apiKeys" class="option-label">API Keys & Tokens</label>
+            </div>
+            <div class="option-group">
+              <input type="checkbox" id="passwords" class="checkbox" checked />
+              <label for="passwords" class="option-label">Passwords</label>
+            </div>
+            <div class="option-group">
+              <input type="checkbox" id="emails" class="checkbox" checked />
+              <label for="emails" class="option-label">Email Addresses</label>
+            </div>
+            <div class="option-group">
+              <input type="checkbox" id="urls" class="checkbox" checked />
+              <label for="urls" class="option-label">URLs & Domains</label>
+            </div>
+            <div class="option-group">
+              <input type="checkbox" id="ips" class="checkbox" checked />
+              <label for="ips" class="option-label">IP Addresses</label>
+            </div>
+            <div class="option-group">
+              <input type="checkbox" id="paths" class="checkbox" checked />
+              <label for="paths" class="option-label">File Paths</label>
+            </div>
+            <div class="option-group">
+              <input type="checkbox" id="dbStrings" class="checkbox" checked />
+              <label for="dbStrings" class="option-label">Database Strings</label>
+            </div>
+            <div class="option-group">
+              <input type="checkbox" id="comments" class="checkbox" />
+              <label for="comments" class="option-label">Personal Comments</label>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button class="btn btn-primary" onclick="sanitizeCode()">Sanitize Code</button>
+            <button class="btn btn-secondary" onclick="clearAll()">Clear All</button>
+            <button class="btn btn-secondary" onclick="copyOutput()">Copy Output</button>
+          </div>
+        </div>
+
+        <div class="stats" id="stats" style="display: none">
+          <div class="stat-card">
+            <div class="stat-number" id="replacements">0</div>
+            <div class="stat-label">Replacements</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="linesProcessed">0</div>
+            <div class="stat-label">Lines</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="charsRemoved">0</div>
+            <div class="stat-label">Chars Cleaned</div>
+          </div>
+        </div>
+
+        <div class="diff-view" id="diffView">
+          <div class="diff-toggle">
+            <button class="toggle-btn active" onclick="showDiff()">Diff View</button>
+            <button class="toggle-btn" onclick="showOutput()">Clean Output</button>
+          </div>
+          <div class="diff-container" id="diffContainer">
+            <div class="diff-header">Changes Made</div>
+            <div id="diffContent"></div>
+          </div>
+        </div>
+
+        <div class="output-section">
+          <h2 class="section-title">Sanitized Output</h2>
+          <textarea
+            id="outputCode"
+            placeholder="Sanitized code will appear here..."
+            readonly
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

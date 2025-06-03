@@ -1,7 +1,6 @@
 {
-  "name": "vanilla-js-template",
-  "private": true,
-  "version": "0.1.0",
+  "name": "code-sanitizer",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
