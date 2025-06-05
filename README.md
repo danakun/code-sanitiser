@@ -209,11 +209,63 @@ The diff view provides GitHub-style visualization of changes:
 - **Memory efficient** client-side processing
 - **No network latency** concerns
 
-## 🔮 Future Enhancements
+💻 Python CLI Tool (Automation & Batch Processing)
+Perfect for automation, CI/CD pipelines, and batch processing entire projects.
+Features:
 
-- [ ] Custom replacement patterns
-- [ ] Export/import configuration
-- [ ] Additional language support
-- [ ] Undo/redo functionality
+🚀 Batch process multiple files and directories
+🔄 Recursive directory scanning
+🎯 Custom filename prefixes
+⚙️ Selective sanitization (skip certain types)
+📊 Detailed reporting with verbose mode
+🌍 Multi-encoding support (UTF-8, Latin-1, etc.)
+📁 40+ file extensions supported
+
+Installation:
+bash# Download the CLI tool
+wget <download-url>/code_sanitizer.py
+# or
+curl -O <download-url>/code_sanitizer.py
+
+# Make it executable (optional)
+chmod +x code_sanitizer.py
+Basic Usage:
+bash# Sanitize a single file
+python3 code_sanitizer.py app.py
+
+# Sanitize with custom prefix
+python3 code_sanitizer.py config.js --prefix "clean_"
+
+# Process entire directory
+python3 code_sanitizer.py src/ --recursive
+
+# Multiple file patterns
+python3 code_sanitizer.py "*.js" "*.html" "*.css"
+Advanced Usage:
+bash# Skip certain types of sanitization
+python3 code_sanitizer.py app.py --skip-comments --skip-emails
+
+# Quiet mode (only show errors)
+python3 code_sanitizer.py *.js --quiet
+
+# Verbose mode (detailed output)
+python3 code_sanitizer.py project/ --recursive --verbose
+
+# Process specific file types
+python3 code_sanitizer.py "*.jsx" "*.tsx" --prefix "safe_"
+Output Example:
+🚀 Processing 15 file(s)...
+
+============================================================
+📄 CODE SANITIZER RESULTS
+============================================================
+✅ Successfully processed: 15 files
+🔧 Total replacements made: 47
+============================================================
+
+📚 Command Line Options
+OptionShortDescription--prefix-pCustom prefix for output files (default: sanitized_)--recursive-rProcess directories recursively--skip-api-keysSkip API keys and tokens--skip-passwordsSkip passwords--skip-emailsSkip email addresses--skip-urlsSkip URLs and domains--skip-ipsSkip IP addresses--skip-pathsSkip file paths--skip-db-stringsSkip database connection strings--skip-commentsSkip personal comments--quiet-qSuppress output except errors--verbose-vShow detailed output
+
+
 
 **⚠️ Important**: Always review the diff output before sharing sanitized code to ensure all sensitive data has been properly removed and your code remains functional.
