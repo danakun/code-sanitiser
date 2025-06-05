@@ -86,15 +86,15 @@ const config = {
 ## 🔧 Configuration Options
 
 | Option            | Description                        | Default     |
-| ----------------- | ---------------------------------- | ----------- |
-| API Keys & Tokens | AWS, GitHub, Google, Stripe, JWT   | ✅ Enabled  |
-| Passwords         | Password fields and secrets        | ✅ Enabled  |
-| Email Addresses   | Personal and business emails       | ✅ Enabled  |
-| URLs & Domains    | Web addresses and domains          | ✅ Enabled  |
-| IP Addresses      | IPv4 and IPv6 addresses            | ✅ Enabled  |
-| File Paths        | System file and directory paths    | ✅ Enabled  |
-| Database Strings  | Connection strings and credentials | ✅ Enabled  |
-| Personal Comments | TODO, FIXME, personal notes        | ❌ Disabled |
+|-------------------|-----------------------------------|-------------|
+| API Keys & Tokens | AWS, GitHub, Google, Stripe, JWT  | ✅ Enabled  |
+| Passwords         | Password fields and secrets       | ✅ Enabled  |
+| Email Addresses   | Personal and business emails      | ✅ Enabled  |
+| URLs & Domains    | Web addresses and domains         | ✅ Enabled  |
+| IP Addresses      | IPv4 and IPv6 addresses           | ✅ Enabled  |
+| File Paths        | System file and directory paths   | ✅ Enabled  |
+| Database Strings  | Connection strings and credentials| ✅ Enabled  |
+| Personal Comments | TODO, FIXME, personal notes       | ❌ Disabled |
 
 ## 🎯 Detection Patterns
 
@@ -209,28 +209,36 @@ The diff view provides GitHub-style visualization of changes:
 - **Memory efficient** client-side processing
 - **No network latency** concerns
 
-💻 Python CLI Tool (Automation & Batch Processing)
+## 💻 Python CLI Tool
+
 Perfect for automation, CI/CD pipelines, and batch processing entire projects.
-Features:
 
-🚀 Batch process multiple files and directories
-🔄 Recursive directory scanning
-🎯 Custom filename prefixes
-⚙️ Selective sanitization (skip certain types)
-📊 Detailed reporting with verbose mode
-🌍 Multi-encoding support (UTF-8, Latin-1, etc.)
-📁 40+ file extensions supported
+### Features
 
-Installation:
-bash# Download the CLI tool
+- 🚀 Batch process multiple files and directories
+- 🔄 Recursive directory scanning
+- 🎯 Custom filename prefixes
+- ⚙️ Selective sanitization (skip certain types)
+- 📊 Detailed reporting with verbose mode
+- 🌍 Multi-encoding support (UTF-8, Latin-1, etc.)
+- 📁 40+ file extensions supported
+
+### Installation
+
+```bash
+# Download the CLI tool
 wget <download-url>/code_sanitizer.py
 # or
 curl -O <download-url>/code_sanitizer.py
 
 # Make it executable (optional)
 chmod +x code_sanitizer.py
-Basic Usage:
-bash# Sanitize a single file
+```
+
+### Basic Usage
+
+```bash
+# Sanitize a single file
 python3 code_sanitizer.py app.py
 
 # Sanitize with custom prefix
@@ -241,8 +249,12 @@ python3 code_sanitizer.py src/ --recursive
 
 # Multiple file patterns
 python3 code_sanitizer.py "*.js" "*.html" "*.css"
-Advanced Usage:
-bash# Skip certain types of sanitization
+```
+
+### Advanced Usage
+
+```bash
+# Skip certain types of sanitization
 python3 code_sanitizer.py app.py --skip-comments --skip-emails
 
 # Quiet mode (only show errors)
@@ -253,7 +265,11 @@ python3 code_sanitizer.py project/ --recursive --verbose
 
 # Process specific file types
 python3 code_sanitizer.py "*.jsx" "*.tsx" --prefix "safe_"
-Output Example:
+```
+
+### Output Example
+
+```
 🚀 Processing 15 file(s)...
 
 ============================================================
@@ -262,10 +278,25 @@ Output Example:
 ✅ Successfully processed: 15 files
 🔧 Total replacements made: 47
 ============================================================
+```
 
-📚 Command Line Options
-OptionShortDescription--prefix-pCustom prefix for output files (default: sanitized_)--recursive-rProcess directories recursively--skip-api-keysSkip API keys and tokens--skip-passwordsSkip passwords--skip-emailsSkip email addresses--skip-urlsSkip URLs and domains--skip-ipsSkip IP addresses--skip-pathsSkip file paths--skip-db-stringsSkip database connection strings--skip-commentsSkip personal comments--quiet-qSuppress output except errors--verbose-vShow detailed output
+### Command Line Options
 
+| Option           | Short | Description                                    |
+|------------------|-------|------------------------------------------------|
+| `--prefix`       | `-p`  | Custom prefix for output files (default: `sanitized_`) |
+| `--recursive`    | `-r`  | Process directories recursively                |
+| `--skip-api-keys`|       | Skip API keys and tokens                      |
+| `--skip-passwords`|      | Skip passwords                                 |
+| `--skip-emails`  |       | Skip email addresses                           |
+| `--skip-urls`    |       | Skip URLs and domains                          |
+| `--skip-ips`     |       | Skip IP addresses                              |
+| `--skip-paths`   |       | Skip file paths                                |
+| `--skip-db-strings`|     | Skip database connection strings              |
+| `--skip-comments`|       | Skip personal comments                         |
+| `--quiet`        | `-q`  | Suppress output except errors                  |
+| `--verbose`      | `-v`  | Show detailed output                           |
 
+---
 
 **⚠️ Important**: Always review the diff output before sharing sanitized code to ensure all sensitive data has been properly removed and your code remains functional.
