@@ -2,7 +2,7 @@
 
 A professional web-based tool for removing sensitive data from code before sharing with AI services like Claude, ChatGPT, or GitHub Copilot. Features a clean, minimal interface with GitHub-style diff visualization to show exactly what changes were made.
 
-![Code Sanitizer Screenshot]([https://via.placeholder.com/800x400/000000/FFFFFF?text=Code+Sanitizer](https://i.postimg.cc/DzfkjWp3/codesntz.png))
+![Code Sanitizer Screenshot]([https://via.placeholder.com/800x400/000000/FFFFFF?text=Code+Sanitizer])
 
 ## 🔒 Why Use Code Sanitizer?
 
